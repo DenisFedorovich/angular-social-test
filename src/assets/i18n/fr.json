@@ -1,0 +1,59 @@
+{
+  "LANG": {
+    "SELECT": "Anglais"
+  },
+  "HEADER": {
+    "LOGIN": "Connexion",
+    "GOTOMAIN": "Aller au principal",
+    "MAINPAGE": "Page d'accueil",
+    "CREATEUSER": "Créer un utilisateur",
+    "LOGOUT": "Se déconnecter"
+  },
+  "LOADER": "S'il vous plaît, attendez...",
+  "FOOTERTEXT": "Tous les droits sont réservés",
+  "USER": {
+    "NAME": "Nom",
+    "SURNAME": "Nom de famille",
+    "CITY": "Ville",
+    "ONMAINPAGE": "Sur la page principale",
+    "BIRTHDAY": "Date d'anniversaire",
+    "SCHOOL": "L'école",
+    "UNIVERSITY": "Université",
+    "STARTEDUCATION": "Commencer l'éducation:",
+    "GRADUATE": "Date d'obtention du diplôme",
+    "USERVIEWONFO": "Afficher plus d'informations",
+    "LOGINTEXT": "Vous devez vous connecter pour utiliser plus de fonctions",
+    "OPEN": "Ouvert",
+    "DELETE": "Supprimer",
+    "SEARCH": "Rechercher un utilisateur",
+    "PERSONAL": "Informations personnelles",
+    "DESCRIBE": "Décrivez-vous",
+    "BIRTHDATE": "Date d'anniversaire",
+    "DRAG": "Faites glisser et déposez le fichier ici ou",
+    "CHOOSE": "Choisir le fichier",
+    "ADDSCHOOl": "ajouter une école",
+    "ADDUNIVERSITY": "ajouter une université",
+    "STARTDATESTUD": "Date de début des études",
+    "GRADUATEDATE": "Date d'obtention du diplôme",
+    "DELETESCHOOL": "supprimer l'école",
+    "EDIT": "Modifier les informations de l'utilisateur",
+    "DESCRIPTION": "  À propos de moi"
+  },
+  "FORM": {
+    "LOGIN": "Connexion",
+    "PASSWORD": "Mot de passe",
+    "EMAIL": "E-mail"
+  },
+  "ERRORS": {
+    "SPECSYMBOL": "Vous ne pouvez pas utiliser de symboles de spécification",
+    "DOYOUWANTTODELETE": "Voulez-vous supprimer cet enregistrement?",
+    "DELETECONFIRM" : "Supprimer la confirmation",
+    "YOUREFUSED": "Vous avez refusé de supprimer le message",
+    "SHOULDBELESS": "la date d'admission dans un établissement d'enseignement ne peut être postérieure à la date d'obtention du diplôme",
+    "EMPTY": "le champ ne peut pas être vide.",
+    "OLDER": "vous devez avoir plus de 8 ans pour vous inscrire",
+    "ISNOTCORRECT": "n'est pas correcte",
+    "PASSCANTBELESS": "le mot de passe ne peut pas être inférieur à",
+    "CHARACTER": "caractères, maintenant le nombre de caractères est"
+  }
+}

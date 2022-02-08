@@ -1,0 +1,22 @@
+.users-block {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  justify-items: center;
+  margin: 0 auto;
+}
+
+h4 {
+  margin-left: 10px;
+}
+
+@media all and (max-width: 1100px) {
+  .users-block {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media all and (max-width: 600px) {
+  .users-block {
+    grid-template-columns: 1fr;
+  }
+}

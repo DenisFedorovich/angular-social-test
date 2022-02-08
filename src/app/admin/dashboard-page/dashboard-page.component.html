@@ -1,0 +1,55 @@
+<p-confirmDialog [style]="{width: '40vw'}" [baseZIndex]="10000"></p-confirmDialog>
+<div class="user-info-block">
+
+  <div class="user-info-block__search" >
+    <small class="validation validation-text">{{ filterValidation() | translate}}</small>
+    <input pInputText type="text" placeholder='{{"USER.SEARCH" | translate}}' [(ngModel)]="searchStr" list="user-list" (input)="filterValidation()">
+    <datalist id="user-list" *ngIf="searchStr.length > 2" >
+      <option *ngFor="let post of posts; let i = index">{{post.name | titlecase}}</option>
+      <option *ngFor="let post of posts; let i = index">{{post.surname | titlecase}}</option>
+      <option *ngFor="let post of posts; let i = index">{{post.city | titlecase}}</option>
+    </datalist>
+  </div>
+
+  <div class="user-info-block__body">
+    <div class="user-inf-block_body-cell" *ngFor="let post of posts | searchUser: searchStr; let i = index">
+      <div class="user-inf-block_body-block">
+        <div class="user-inf-block__body-cell-avatar" >
+          <img class="user-inf-block__body-cell-avatar-img" [src]="post.photo">
+        </div>
+        <div class="user-inf-block__body-cell-block">{{"USER.NAME" | translate}}: <strong>{{post.name | titlecase}}</strong></div>
+        <div class="user-inf-block__body-cell-block">{{"USER.SURNAME" | translate}}: <strong> {{post.surname | titlecase}}</strong></div>
+        <div class="user-inf-block__body-cell-block">{{"USER.BIRTHDAY" | translate}}: <strong>{{post.birthday | date: 'longDate' :'MMMM d, y'}}: </strong></div>
+        <div class="user-inf-block__body-cell-block">{{"USER.DESCRIPTION" | translate}}: <strong>{{post.text}}</strong></div>
+        <div class="user-inf-block__body-cell-block">{{"USER.CITY" | translate}}: <strong>{{post.city | titlecase}}</strong></div>
+        <div *ngIf="post.schools?.length">
+          <div *ngFor="let school of post.schools[0]" class="user-inf-block__body-education">
+            <div class="user-inf-block__body-cell-block">{{"USER.SCHOOL" | translate}}: <strong> {{school?.school}}</strong></div>
+            <div class="user-inf-block__body-cell-block">{{"USER.STARTEDUCATION" | translate}} <strong>{{school?.startSchoolDate | date: 'longDate' :'MMMM d, y'}}</strong></div>
+            <div class="user-inf-block__body-cell-block">{{"USER.GRADUATE" | translate}} <strong>{{school?.graduateSchoolDate | date: 'longDate' :'MMMM d, y'}}</strong></div>
+          </div>
+        </div>
+
+        <div *ngIf="post.universities?.length">
+          <div *ngFor="let university of post.universities[0]" class="user-inf-block__body-education">
+            <div class="user-inf-block__body-cell-block">{{"USER.UNIVERSITY" | translate}} <strong>{{university?.university}}</strong></div>
+            <div class="user-inf-block__body-cell-block">{{"USER.STARTEDUCATION" | translate}}: <strong>{{university?.startUniversityDate | date: 'longDate' :'MMMM d, y'}}</strong></div>
+            <div class="user-inf-block__body-cell-block">{{"USER.GRADUATE" | translate}}: <strong>{{university?.graduateUniversityDate | date: 'longDate' :'MMMM d, y'}}</strong></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="user-info-block__btn-blocks">
+        <div class="user-info-block__btn-block">
+            <div>
+              <p-button class="user-info-block__btn-open" [routerLink]="['/admin', 'user', post.id, 'edit']" label='{{"USER.OPEN" | translate}}'></p-button>
+            </div>
+            <div>
+              <p-button (click)="confirm2(post.id)" icon="pi pi-times" label='{{"USER.DELETE" | translate}}'></p-button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+

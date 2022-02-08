@@ -1,0 +1,27 @@
+.loading-spinner{
+  background-color: #fff;
+  position: absolute;
+  width: 100%;
+  top: 0px;
+  left: 0px;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+  display: grid;
+}
+
+.loading-spinner img{
+  width: 100px;
+}
+
+.loading-message{
+  text-align: center;
+  align-self: start;
+}
+
+.loading-spinner-block {
+  display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

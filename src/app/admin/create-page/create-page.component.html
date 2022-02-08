@@ -1,0 +1,385 @@
+<div class="create-user-block">
+  <form
+    class="create-user-block-form"
+    [formGroup]="form"
+    (ngSubmit)="(submit)"
+    autocomplete="on"
+  >
+    <h2 class="create-user-block__form-header">
+      {{ "HEADER.CREATEUSER" | translate }}
+    </h2>
+
+    <!--- DND --->
+    <div class="create-user-block__form-drag-block form-block">
+      <div class="create-user-block__form-drag-condition">
+        <div *ngIf="base64 === ''; else loadImg"></div>
+        <ng-template #loadImg>
+          <img class="create-user-block__form-drag-img" [src]="base64" />
+          <button
+            pButton
+            type="button"
+            (click)="removeImg()"
+            icon="pi pi-times"
+            class="p-button-text"
+          ></button>
+        </ng-template>
+      </div>
+
+      <div class="create-user-block__form-drag-drop" appDnd>
+        <input
+          class="fileDropRef"
+          id="fileDropRef"
+          #fileDropRef
+          type="file"
+          accept="image/*"
+          name="your photo"
+          (change)="onFileSelected($event)"
+        />
+        <img
+          id="create-user-block__form-input-upload-img"
+          class="create-user-block__form-input-upload-img"
+          src="../../../assets/images/upload.svg"
+        />
+        <p>{{ "USER.DRAG" | translate }}</p>
+        <label
+          class="create-user-block__form-input-upload-label"
+          for="fileDropRef"
+          >{{ "USER.CHOOSE" | translate }}</label
+        >
+      </div>
+    </div>
+
+    <!--- NAME INPUT --->
+
+    <div class="form-block">
+      <div
+        *ngIf="form?.get('name')?.invalid && form?.get('name')?.touched"
+        class="validation validation-text"
+      >
+        <small>
+          {{ setErrorsName() }}
+        </small>
+      </div>
+      <span class="create-user-block__input-name">{{
+        "USER.NAME" | translate
+      }}</span>
+      <div>
+        <span class="p-float-label">
+          <input
+            id="float-input-name"
+            autocomplete="on"
+            type="text"
+            formControlName="name"
+            placeholder="{{ 'USER.NAME' | translate }}"
+            pInputText
+          />
+        </span>
+      </div>
+    </div>
+
+    <!--- TEXTAREA INPUT --->
+
+    <div class="create-user-block__input-textarea form-block">
+      <div
+        *ngIf="form?.get('text')?.invalid && form?.get('text')?.touched"
+        class="validation validation-text"
+      >
+        <small>
+          {{ setErrorsEmpty("text") }}
+        </small>
+      </div>
+      <span class="create-user-block__input-name">{{
+        "USER.PERSONAL" | translate
+      }}</span>
+      <textarea
+        [rows]="2"
+        [cols]="30"
+        maxlength="200"
+        placeholder="{{ 'USER.DESCRIBE' | translate }}"
+        formControlName="text"
+      ></textarea>
+    </div>
+
+    <!--- SURNAME --->
+
+    <div class="form-block">
+      <div
+        *ngIf="form?.get('surname')?.invalid && form?.get('surname')?.touched"
+        class="validation validation-text"
+      >
+        <small>
+          {{ setErrorsName() }}
+        </small>
+      </div>
+      <span class="registration-block__input-name">{{
+        "USER.SURNAME" | translate
+      }}</span>
+      <div>
+        <span class="p-float-label">
+          <input
+            autocomplete="on"
+            type="text"
+            formControlName="surname"
+            placeholder="{{ 'USER.SURNAME' | translate }}"
+            pInputText
+          />
+        </span>
+      </div>
+    </div>
+
+    <!--- DATE --->
+
+    <div class="registration-block__form-birthday form-block">
+      <div
+        *ngIf="form?.get('birthday')?.invalid && form?.get('birthday')?.touched"
+        class="validation validation-text"
+      >
+        <small>
+          {{ setErrorsBirthday() }}
+        </small>
+      </div>
+      <span class="registration-block__input-name">{{
+        "USER.BIRTHDATE" | translate
+      }}</span>
+      <p-calendar
+        formControlName="birthday"
+        dateFormat="dd MM yy"
+        placeholder="{{ 'USER.BIRTHDATE' | translate }}"
+        id="float-input-birthday"
+      >
+      </p-calendar>
+    </div>
+
+    <!-- CITY INPUT-->
+
+    <div class="registration-block__form-city form-block">
+      <div
+        *ngIf="form?.get('city')?.invalid && form?.get('city')?.touched"
+        class="validation validation-text"
+      >
+        <small>
+          {{ setErrorsEmpty("city") }}
+        </small>
+      </div>
+      <span class="registration-block__input-name">{{
+        "USER.CITY" | translate
+      }}</span>
+      <span class="p-float-label">
+        <input
+          id="float-input-city"
+          type="text"
+          autocomplete="on"
+          pInputText
+          formControlName="city"
+          placeholder="{{ 'USER.CITY' | translate }}"
+        />
+      </span>
+    </div>
+
+    <!-- SCHOOL INPUT-->
+
+    <div
+      class="registration-block__form-school form-block"
+      formArrayName="schools"
+    >
+      <p-button
+        class="registration-block__form-school-btn"
+        type="button"
+        [disabled]="
+          form?.get('schools')?.invalid && form?.get('schools')?.value.length
+        "
+        (click)="
+          form?.get('schools')?.invalid && form?.get('schools')?.value.length
+            ? false
+            : addSchoolItem()
+        "
+      >
+        {{ "USER.ADDSCHOOl" | translate }}
+      </p-button>
+
+      <div
+        class="registration-block__form-control"
+        *ngFor="let item of getControls('schools'); let i = index"
+        [formGroupName]="i"
+      >
+        <div class="registration-block__form-control-input">
+          <div
+            *ngIf="getError('schools', 'school', i)"
+            class="validation validation-text"
+          >
+            <small>{{ hasError("schools", "school", i) }}</small>
+          </div>
+          <div class="registration-block__form-control-item">
+            <span class="registration-block__input-name"
+              >{{ "USER.SCHOOL" | translate }}: {{ i + 1 }}</span
+            >
+            <span class="p-float-label">
+              <input
+                type="text"
+                formControlName="school"
+                placeholder="{{ 'USER.ADDSCHOOl' | translate }}"
+                pInputText
+              />
+            </span>
+          </div>
+
+          <div
+            *ngIf="getError('schools', 'startSchoolDate', i)"
+            class="validation validation-text"
+          >
+            <small>{{ hasError("schools", "startSchoolDate", i) }}</small>
+          </div>
+          <div
+            class="registration-block__form-control-calendar registration-block__form-control-item"
+          >
+            <span class="registration-block__input-name">
+              {{ "USER.STARTDATESTUD" | translate }}: {{ i + 1 }}</span
+            >
+            <span class="p-float-label">
+              <p-calendar
+                formControlName="startSchoolDate"
+                dateFormat="dd MM yy"
+              ></p-calendar>
+            </span>
+          </div>
+
+          <div
+            *ngIf="getError('schools', 'graduateSchoolDate', i)"
+            class="validation validation-text"
+          >
+            <small>{{ hasError("schools", "graduateSchoolDate", i) }}</small>
+          </div>
+
+          <div
+            class="registration-block__form-control-calendar registration-block__form-control-item"
+          >
+            <span class="registration-block__input-name"
+              >{{ "USER.STARTDATESTUD" | translate }} {{ i + 1 }}</span
+            >
+            <span class="p-float-label">
+              <p-calendar
+                formControlName="graduateSchoolDate"
+                dateFormat="dd MM yy"
+              ></p-calendar>
+            </span>
+          </div>
+        </div>
+        <button
+          pButton
+          type="button"
+          class="p-button-text"
+          (click)="deleteEducation('schools', i)"
+        >
+          {{ "USER.DELETESCHOOL" | translate }} {{ i + 1 }} info
+        </button>
+      </div>
+    </div>
+
+    <!-- UNIVERSITY INPUT-->
+
+    <div
+      class="registration-block__form-school form-block"
+      formArrayName="universities"
+    >
+      <p-button
+        class="registration-block__form-school-btn"
+        type="button"
+        [disabled]="
+          form?.get('universities')?.invalid &&
+          form?.get('universities')?.value.length
+        "
+        (click)="
+          form?.get('universities')?.invalid &&
+          form?.get('universities')?.value.length
+            ? false
+            : addUniversityItem()
+        "
+      >
+        {{ "USER.ADDUNIVERSITY" | translate }}
+      </p-button>
+
+      <div
+        class="registration-block__form-control"
+        *ngFor="let item of getControls('universities'); let i = index"
+        [formGroupName]="i"
+      >
+        <div class="registration-block__form-control-input">
+          <div
+            *ngIf="getError('universities', 'university', i)"
+            class="validation validation-text"
+          >
+            <small>{{ hasError("universities", "university", i) }}</small>
+          </div>
+          <div class="registration-block__form-control-item">
+            <span class="registration-block__input-name">
+              {{ "USER.UNIVERSITY" | translate }}: {{ i + 1 }}</span
+            >
+            <span class="p-float-label">
+              <input
+                type="text"
+                formControlName="university"
+                placeholder="{{ 'USER.ADDUNIVERSITY' | translate }}"
+                pInputText
+              />
+            </span>
+          </div>
+
+          <div
+            *ngIf="getError('universities', 'startUniversityDate', i)"
+            class="validation validation-text"
+          >
+            <small>{{
+              hasError("universities", "startUniversityDate", i)
+            }}</small>
+          </div>
+          <div
+            class="registration-block__form-control-calendar registration-block__form-control-item"
+          >
+            <span class="registration-block__input-name">
+              {{ "USER.STARTDATESTUD" | translate }}: {{ i + 1 }}</span
+            >
+            <span class="p-float-label">
+              <p-calendar
+                formControlName="startUniversityDate"
+                dateFormat="dd MM yy"
+              ></p-calendar>
+            </span>
+          </div>
+
+          <div
+            *ngIf="getError('universities', 'graduateUniversityDate', i)"
+            class="validation validation-text"
+          >
+            <small>{{
+              hasError("universities", "graduateUniversityDate", i)
+            }}</small>
+          </div>
+          <div
+            class="registration-block__form-control-calendar registration-block__form-control-item"
+          >
+            <span class="registration-block__input-name">
+              {{ "USER.GRADUATEDATE" | translate }}: {{ i + 1 }}</span
+            >
+
+            <span class="p-float-label">
+              <p-calendar
+                formControlName="graduateUniversityDate"
+                dateFormat="dd MM yy"
+              ></p-calendar>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="authorization-block__submit">
+      <p-button
+        type="submit"
+        class="btn-submit"
+        [disabled]="form.invalid || submitted"
+        (click)="form.invalid || submitted ? false : submit()"
+        >{{ "HEADER.CREATEUSER" | translate }}
+      </p-button>
+    </div>
+  </form>
+</div>

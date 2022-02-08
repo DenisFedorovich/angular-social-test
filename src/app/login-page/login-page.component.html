@@ -1,0 +1,73 @@
+<div class="authorization-block">
+  <form
+    class="authorization-block-form"
+    [formGroup]="form"
+    (ngSubmit)="(submit)"
+  >
+    <h2 class="authorization-block__form-header">{{"FORM.LOGIN"|translate}}</h2>
+    <div class="alert alert-danger" *ngIf="auth.error$ | async as error">
+      {{ error }}
+    </div>
+    <div class="alert alert-info" *ngIf="message">
+      {{ message }}
+    </div>
+    <div>
+      <div
+        *ngIf="form?.get('email')?.invalid && form?.get('email')?.touched"
+        class="validation validation-text"
+      >
+        <small>
+          {{ setErrorsEmail() }}
+        </small>
+      </div>
+      <span class="registration-block__input-name">{{"FORM.EMAIL"|translate}}</span>
+      <div>
+        <span class="p-float-label">
+          <input
+            id="float-input-email"
+            autocomplete="on"
+            type="text"
+            formControlName="email"
+            placeholder="Email"
+            pInputText
+          />
+        </span>
+      </div>
+    </div>
+    
+    <div
+      *ngIf="form?.get('password')?.invalid && form?.get('password')?.touched"
+      class="validation validation-text"
+    >
+      <small>{{ setErrorsPassword("password") }}</small>
+    </div>
+    <span class="registration-block__input-name">{{"FORM.PASSWORD"|translate}}</span>
+    <div class="registration-block__form-password">
+      <input
+        class="float-input-password"
+        placeholder="Password"
+        [type]="passwordType"
+        formControlName="password"
+        pInputText
+      />
+      <div
+        (click)="togglePasswordType()"
+        [ngClass]="
+          passwordType === 'password'
+            ? 'float-input-password-btn'
+            : 'float-input-password-btn-view'
+        "
+      ></div>
+    </div>
+
+    <div class="authorization-block__submit">
+      <p-button
+        type="submit"
+        class="btn-submit"
+        (click)="form.invalid ? false : submit()"
+        [disabled]="form.invalid || submitted"
+        >{{"FORM.LOGIN"|translate}}</p-button
+      >
+    </div>
+  </form>
+</div>

@@ -1,0 +1,6 @@
+<div class="users" *ngIf="users$ | async as users">
+  <h4>{{"USER.LOGINTEXT" | translate}}</h4>
+  <div class="users-block">
+    <app-user *ngFor="let user of users" [user]="user"> </app-user>
+  </div>
+</div>

@@ -1,0 +1,36 @@
+.user-card {
+  width: 19vw;
+  border: 1px solid gray;
+  border-radius: 10px;
+  background-color: #ecedff;
+  margin: 20px;
+  border-radius: 5px;
+  margin: 10px;
+  padding: 10px;
+}
+
+.user-card__btn {
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+}
+
+@media all and (max-width: 1200px) {
+  .user-card {
+    width: 45vw;
+  }
+}
+
+@media all and (max-width: 900px) {
+  .user-card {
+    width: 41vw;
+  }
+}
+
+@media all and (max-width: 600px) {
+  .user-card {
+    width: 65vw;
+  }
+}
+
+

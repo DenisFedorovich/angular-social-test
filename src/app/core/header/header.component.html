@@ -1,0 +1,61 @@
+<nav class="navbar bg-pimary">
+  <div class="link-list" *ngIf="auth.isAuthenticated(); else noAuth">
+    <h2 class="navbar_header">
+      <a routerLink="/admin"> {{ "HEADER.GOTOMAIN" | translate }} </a>
+    </h2>
+    <ul>
+      <li class="navbar-language">
+        <div class="navbar-language__dropdown big">
+          <select #selLang (change)="translateLanguageTo(selLang.value)">
+            <option
+              *ngFor="let language of translate.getLangs()"
+              [value]="language"
+            >
+              {{ language }}
+            </option>
+          </select>
+        </div>
+      </li>
+      <li routerLinkActive="active">
+        <a [routerLink]="['/admin', 'dashboard']">{{
+          "HEADER.MAINPAGE" | translate
+        }}</a>
+      </li>
+      <li routerLinkActive="active">
+        <a [routerLink]="['/admin', 'createuser']">{{
+          "HEADER.CREATEUSER" | translate
+        }}</a>
+      </li>
+      <li>
+        <a href="#" (click)="logout($event)">{{
+          "HEADER.LOGOUT" | translate
+        }}</a>
+      </li>
+    </ul>
+  </div>
+
+  <ng-template #noAuth>
+    <div class="link-list">
+      <h2>
+        <a routerLink="/"> {{ "HEADER.GOTOMAIN" | translate }} </a>
+      </h2>
+      <ul>
+        <li class="navbar-language">
+          <div class="navbar-language__dropdown big">
+            <select #selLang (change)="translateLanguageTo(selLang.value)">
+              <option
+                *ngFor="let language of translate.getLangs()"
+                [value]="language"
+              >
+                {{ language }}
+              </option>
+            </select>
+          </div>
+        </li>
+        <li routerLinkActive="active">
+          <a [routerLink]="['/login']"> {{ "HEADER.LOGIN" | translate }}</a>
+        </li>
+      </ul>
+    </div>
+  </ng-template>
+</nav>

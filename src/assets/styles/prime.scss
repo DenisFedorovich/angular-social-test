@@ -1,0 +1,131 @@
+.btn-block_login p-button .p-button {
+  border: 1px solid #3c4d66;
+  margin-left: 10px;
+  padding: 10px 15px;
+  color: #fcfcfc;
+  background: #100831;
+}
+
+.user-card p-button .p-button {
+  padding: 8px 15px;
+  font-size: 12px;
+}
+
+.user-info-block__search .p-inputtext {
+  font-size: 13px;
+  padding: 8px 5px;
+}
+
+.user-info-block__btn-block p-button .p-button {
+  padding: 8px 15px;
+  font-size: 12px;
+}
+
+.form-block .p-inputtext {
+  font-size: 13px;
+  padding: 8px 5px;
+}
+
+.authorization-block .p-inputtext{
+  font-size: 13px;
+  padding: 10px 15px;
+}
+
+.form-block textarea[placeholder] {
+  font-size: 13px!important;
+}
+
+.users-block__btn p-button .p-button {
+    padding: 10px;
+    font-size: 13px;
+}
+
+.btn-block_login p-button .p-button:enabled:hover {
+  background: #1c498a;
+  color: #ffffff;
+  border-color: #5c5980;
+}
+
+.btn-block_login p-button .p-button:enabled:focus {
+  border: 1px solid #783db2;
+  box-shadow: none;
+}
+
+.registration-block__form-school p-button .p-button {
+    background: #3d25a0;
+    border: 1px solid #6366f1;
+    padding: 7px 23px !important;
+    font-size: 13px;
+}
+
+.registration-block__form-university p-button .p-button {
+  background: #3d25a0;
+  border: 1px solid #6366f1;
+  padding: 7px 23px !important;
+  font-size: 13px;
+}
+
+.authorization-block__submit p-button .p-button {
+  background: #3d25a0;
+  border: 1px solid #6366f1;
+  padding: 10px 23px !important;
+  font-size: 13px;
+}
+
+.registration-block__form-password p-password .p-component {
+  width: 40vw;
+}
+
+.registration-block__form-control-calendar p-calendar .p-component {
+  width: 40vw;
+}
+
+.registration-block__form-birthday p-calendar .p-component {
+  width: 40vw;
+}
+
+.registration-block__form-control .p-button.p-button-text{
+  font-size: 13px;
+}
+
+@media all and (max-width: 1000px) {
+  .registration-block__form-password p-password .p-component {
+    width: 50vw;
+  }
+
+  .registration-block__form-control-calendar p-calendar .p-component {
+    width: 50vw;
+  }
+
+  .registration-block__form-birthday p-calendar .p-component {
+    width: 50vw;
+  }
+}
+
+@media all and (max-width: 600px) {
+  .registration-block__form-password p-password .p-component {
+    width: 60vw;
+  }
+
+  .registration-block__form-control-calendar p-calendar .p-component {
+    width: 60vw;
+  }
+
+  .registration-block__form-birthday p-calendar .p-component {
+    width: 60vw;
+  }
+}
+
+@media all and (max-width: 500px) {
+  .registration-block__form-password p-password .p-component {
+    width: 70vw;
+  }
+
+  .registration-block__form-control-calendar p-calendar .p-component {
+    width: 70vw;
+  }
+
+  .registration-block__form-birthday p-calendar .p-component {
+    width: 70vw;
+  }
+}

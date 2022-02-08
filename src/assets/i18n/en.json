@@ -1,0 +1,60 @@
+{
+  "LANG": {
+    "SELECT": "English"
+  },
+  "HEADER": {
+    "LOGIN": "Log In",
+    "GOTOMAIN": "Go to main",
+    "MAINPAGE": "Main page",
+    "CREATEUSER": "Create user",
+    "LOGOUT": "Log out"
+
+  },
+  "LOADER": "Please wait...",
+  "FOOTERTEXT": "All rights reserved",
+  "USER": {
+    "NAME": "Name",
+    "SURNAME": "Surname",
+    "CITY": "City",
+    "ONMAINPAGE": "Go to main page",
+    "BIRTHDAY": "Birthday",
+    "SCHOOL": "School",
+    "UNIVERSITY": "University",
+    "STARTEDUCATION": "Start education:",
+    "GRADUATE": "Graduate date",
+    "USERVIEWONFO": "View more information",
+    "LOGINTEXT": "You have to login for use more function",
+    "OPEN": "Edit user",
+    "DELETE": "Delete",
+    "SEARCH": "Search user",
+    "PERSONAL": "Personal information",
+    "DESCRIBE": "Describe yourself",
+    "BIRTHDATE": "Birthday date",
+    "DRAG": "Drag and drop file here or",
+    "CHOOSE": "Choose file",
+    "ADDSCHOOl": "add school",
+    "ADDUNIVERSITY": "add university",
+    "STARTDATESTUD": "Start date of studies",
+    "GRADUATEDATE": "Graduation date",
+    "DELETESCHOOL": "delete school",
+    "EDIT": "Edit user information",
+    "DESCRIPTION": "About me"
+  },
+  "FORM": {
+    "LOGIN":"Log In",
+    "PASSWORD": "Password",
+    "EMAIL": "Email"
+  },
+  "ERRORS": {
+    "SPECSYMBOL": "You can't use specsymbols",
+    "DOYOUWANTTODELETE": "Do you want to delete this record?",
+    "DELETECONFIRM" : "Delete Confirmation",
+    "YOUREFUSED": "You refused to delete the post",
+    "SHOULDBELESS": "the date of admission to an educational institution cannot be later than the graduation date",
+    "EMPTY": "the field cannot be empty.",
+    "OLDER": "`you have to be over 8 years of age to register",
+    "ISNOTCORRECT": "is not correct",
+    "PASSCANTBELESS": "name cannot be less than",
+    "CHARACTER": "characters, now the number of characters is"
+  }
+}

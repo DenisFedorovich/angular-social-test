@@ -1,0 +1,13 @@
+<div class="user-card">
+  <div class="user-card__header">
+    <p>
+      {{'USER.NAME' | translate }}: <strong>{{ user.name | titlecase }} {{ user.surname | namepipe}}</strong>
+    </p>
+    <div>
+      {{'USER.BIRTHDAY' | translate }}: <strong>{{ user.birthday | date: 'longDate' :'MMMM d, y'}}</strong>
+    </div>
+  </div>
+  <p-button class="user-card__btn" [routerLink]="['/user', user.id]"
+    >{{'USER.USERVIEWONFO' | translate }}</p-button
+  >
+</div>

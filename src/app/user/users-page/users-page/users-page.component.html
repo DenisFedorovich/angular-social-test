@@ -1,0 +1,15 @@
+<div *ngIf="user$ | async as user">
+  <div class="users">
+    <h5>{{"USER.LOGINTEXT" | translate}}</h5>
+    <div class="users-block">
+        <p class="users-block__avatar"><img class="users-block__avatar-img" [src]="user.photo"></p>
+        <p>{{"USER.NAME" | translate}}: <strong>{{ user.name }}</strong></p>
+        <p>{{"USER.SURNAME" | translate}}: <strong>{{ user.surname }}</strong></p>
+        <p>{{"USER.BIRTHDAY" | translate}}: <strong>{{ user.date | date: 'longDate' :'MMMM d, y'}}</strong></p>
+        <p>{{"USER.CITY" | translate}}: <strong>{{ user.city }}</strong></p>
+        <div class="users-block__btn">
+          <p-button routerLink="/">{{"USER.ONMAINPAGE" | translate}}</p-button>
+        </div>
+    </div>
+  </div>
+</div>

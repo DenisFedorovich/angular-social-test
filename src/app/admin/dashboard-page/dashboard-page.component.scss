@@ -1,0 +1,122 @@
+.user-info-block {
+  .user-info-block__header {
+    .user-info-block__header-cell {
+      grid-template-columns: 30px 1fr 1fr 4fr 2fr 200px;
+      div {
+        border: 1px solid gray;
+        padding: 5px;
+      }
+    }
+  }
+
+  .user-info-block__body {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-items: center;
+
+    .user-inf-block_body-cell {
+      display: flex;
+      justify-content: space-between;
+      flex-direction: column;
+      grid-template-columns: 30px 1fr 1fr 4fr 2fr 200px;
+      width: 18vw;
+      border: 1px solid gray;
+      border-radius: 10px;
+      background-color: #ecedff;
+      margin: 10px;
+      padding: 10px;
+
+      .user-inf-block__body-education {
+        border: 1px dashed rgba(0, 0, 0, 0.2);
+        border-radius: 5px;
+        margin-bottom: 5px;
+      }
+
+      .user-inf-block__body-cell-avatar {
+        position: relative;
+        width: 180px;
+        height: 155px;
+        margin: 0 auto;
+        .user-inf-block__body-cell-avatar-img {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          width: 140px;
+          height: 140px;
+          overflow: hidden;
+          object-fit: cover;
+          border: 5px solid #ffffff;
+          border-radius: 50%;
+          background: #ffffff;
+          transform: translate(-50%, -50%);
+          outline: 1px solid #cccccc;
+        }
+      }
+
+      .user-info-block__btn-block {
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .user-inf-block__body-cell-block {
+        margin: 2px;
+      }
+    }
+  }
+}
+
+@media all and (max-width: 1600px) {
+  .user-info-block {
+    .user-info-block__body {
+      .user-inf-block_body-cell {
+        width: 19vw;
+      }
+    }
+  }
+}
+
+@media all and (max-width: 1150px) {
+  .user-info-block {
+    .user-info-block__body {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      .user-inf-block_body-cell {
+        width: 40vw;
+      }
+    }
+  }
+}
+
+@media all and (max-width: 750px) {
+  .user-info-block {
+    .user-info-block__body {
+      display: grid;
+      grid-template-columns:  1fr;
+      .user-inf-block_body-cell {
+        width: 70vw;
+      }
+    }
+  }
+}
+
+@media all and (max-width: 420px) {
+  .user-info-block {
+    .user-info-block__body {
+      .user-inf-block_body-cell {
+        .user-info-block__btn-block {
+          display: flex;
+          flex-direction: column;
+        }
+        .user-info-block__btn-blocks {
+          .user-info-block__btn-block {
+           div {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 5px;
+           }
+          }
+        }
+      }
+    }
+  }
+}

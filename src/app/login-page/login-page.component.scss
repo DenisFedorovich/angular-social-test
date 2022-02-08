@@ -1,0 +1,82 @@
+.authorization-block {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+
+  .authorization-block-form {
+    width: 25vw;
+    border: 1px #c8aaaa dashed;
+    border-radius: 5px;
+    padding: 5px;
+
+    .authorization-block__form-header {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 12px;
+    }
+    .p-float-label {
+      margin-bottom: 15px;
+      .float-input-password {
+        top: 10px;
+      }
+    }
+    .authorization-block__submit {
+      display: flex;
+      justify-content: center;
+    }
+  }
+}
+
+.validation {
+  color: red;
+}
+
+.validation-text {
+  margin-left: 10px;
+  margin-bottom: 5px;
+  color: red;
+}
+
+.registration-block__form-password {
+  position: relative;
+  margin-bottom: 15px;
+  .float-input-password-btn,
+  .float-input-password-btn-view {
+    position: absolute;
+    top: 7px;
+    right: 6px;
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+  }
+
+  .float-input-password-btn {
+    background: url(../../assets/images/view.svg) 0 0 no-repeat;
+  }
+
+  .float-input-password-btn-view {
+    background: url(../../assets/images/no-view.svg) 0 0 no-repeat;
+  }
+}
+
+.alert {
+  background-color: #ffadc9;
+}
+
+@media all and (max-width: 1000px) {
+  .authorization-block {
+    .authorization-block-form {
+      width: 60vw;
+    }
+  }
+}
+
+@media all and (max-width: 500px) {
+  .authorization-block {
+    .authorization-block-form {
+      width: 80vw;
+    }
+  }
+}
